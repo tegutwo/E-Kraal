@@ -11,7 +11,6 @@ if ('serviceWorker' in navigator) {
   //Cache assets
   var CACHE_NAME = 'my-offline-cache';
 var urlsToCache = [
-  '/E-Kraal',
   '/E-Kraal/index.html',
   '/E-Kraal/app.js',
   '/E-Kraal/style.css',
