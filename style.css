@@ -269,12 +269,14 @@ main {
   color: #CF651F; }
   @media (max-width: 37.5em) {
     #filter {
-      width: 90%; } }
+      width: 90%;
+      border: 1px solid #CF651F;
+      border-radius: 3px; } }
 
 #filter:focus {
   outline: none;
   border: none;
-  background-color: #fafafa;
+  background-color: #999999;
   color: #2f2f2f; }
 
 #filter::placeholder {
@@ -301,7 +303,7 @@ main {
     .info-container {
       height: 20rem;
       padding: .5rem 0;
-      padding-top: 1rem; } }
+      padding-top: 2rem; } }
 
 .info-container:last-child {
   margin-bottom: 3rem; }

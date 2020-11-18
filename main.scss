@@ -20,6 +20,7 @@ html{
     }
     @include respond(mobileL){
         font-size: 56.25%;
+        // zoom: none;
     }
     @include respond(mobileS){
         font-size: 50%;
@@ -299,12 +300,14 @@ align-items: center;
     color: #CF651F;
     @include respond(mobileL){
         width: 90%;
+        border: 1px solid #CF651F;
+        border-radius: 3px;
     }
 }
 #filter:focus{
     outline: none;
     border: none;
-    background-color: #fafafa;
+    background-color: #999999;
     color: #2f2f2f;
 }
 #filter::placeholder{
@@ -328,9 +331,9 @@ align-items: center;
         width: 95%;
     }
     @include respond(mobileL){
-        height: 20rem;
+    height: 20rem;
    padding: .5rem 0;
-   padding-top: 1rem;
+   padding-top: 2rem;
     }
 }
 .info-container:last-child{
