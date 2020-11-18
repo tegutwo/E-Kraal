@@ -11,8 +11,7 @@ html {
   font-family: 'Roboto', sans-serif; }
   @media (max-width: 37.5em) {
     html {
-      font-size: 56.25%;
-      overflow-x: hidden; } }
+      font-size: 56.25%; } }
   @media (max-width: 31.25em) {
     html {
       font-size: 50%; } }
@@ -23,7 +22,6 @@ html {
 body {
   font-family: 'Quicksand';
   font-weight: 400;
-  overflow-x: hidden;
   scroll-behavior: smooth; }
 
 input, label {
@@ -159,7 +157,7 @@ header {
   position: fixed;
   top: 30%;
   left: 10rem;
-  z-index: 100;
+  z-index: 1;
   width: 20rem;
   height: 20rem; }
   @media (max-width: 75em) {
@@ -287,7 +285,7 @@ main {
   display: flex;
   justify-content: center;
   width: 60%;
-  z-index: 1000;
+  z-index: 2;
   max-width: 80rem;
   background-color: #ffffff;
   padding: 2rem 1rem;
@@ -330,7 +328,8 @@ main {
   letter-spacing: 1px; }
   @media (max-width: 37.5em) {
     .info-text {
-      letter-spacing: 0; } }
+      letter-spacing: 0;
+      height: 10rem; } }
 
 .info-image {
   width: 100%; }
