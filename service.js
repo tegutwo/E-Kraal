@@ -3,6 +3,10 @@ if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service.js');
     });
   }
+  //polyfill
+  Cache.prototype.add = function add(request) {
+    return this.addAll([request]);
+  }
 
   //Cache assets
   var CACHE_NAME = 'my-offline-cache';
@@ -10,7 +14,8 @@ var urlsToCache = [
   '/',
   '/index.html',
   '/app.js',
-  '/style.css'
+  '/style.css',
+  '/Images/header@1X.png'
 ];
 
 self.addEventListener('install', function(event) {
@@ -24,11 +29,11 @@ self.addEventListener('install', function(event) {
 
 //Fetch if No INternet
 self.addEventListener('fetch', function(event) {
-    event.respondWith(
-      fetch(event.request).catch(function() {
-        caches.match(event.request).then(function(response) {
-          return response;
-        })
-        })
-        )
-        });
+  console.log(event.request.url);
+ 
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request);
+    })
+  );
+ });
