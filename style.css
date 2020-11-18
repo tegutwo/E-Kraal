@@ -299,7 +299,9 @@ main {
       width: 95%; } }
   @media (max-width: 37.5em) {
     .info-container {
-      padding: 4rem 0; } }
+      height: 20rem;
+      padding: .5rem 0;
+      padding-top: 1rem; } }
 
 .info-container:last-child {
   margin-bottom: 3rem; }
