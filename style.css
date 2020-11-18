@@ -75,9 +75,10 @@ input, label {
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   font-size: 1.6rem;
-  padding: 2rem;
+  padding: 2rem 15rem;
+  padding-right: 25rem;
   font-family: "Roboto";
   letter-spacing: 1px; }
   @media (max-width: 75em) {

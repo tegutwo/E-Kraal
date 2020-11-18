@@ -52,11 +52,11 @@ function getElement(element){
 //Initialise
 function initApp(){
     let stat = document.querySelector("#Statistics");
-    stat.classList.add("active");
-  
+    stat.classList.add("active"); 
     getData({target:{id:"showAll"}});
 
 }
+//Helper Function
 
 //Nav;
 var history1 = getElement("#History");
@@ -95,8 +95,11 @@ var showAll = document.querySelector("#showAll");
     show.addEventListener("click",getData);
     showAll.addEventListener("click",getData);
 
-function getData(e){
+async function getData(e){
     showLoading();
+    const online = navigator.onLine;
+    console.log(online);
+    if(online){
     console.log(document.querySelector("div.info-container"));
     if(document.querySelector("div.info-container")!=null){
         let element = document.querySelectorAll("div.info-container");
@@ -291,6 +294,7 @@ function getData(e){
                 // endLoading();
               response.json().then(resStat=>{
                   let DataArr = resStat.response;
+                  localStorage.setItem("stat-offline",JSON.stringify(DataArr));
                 DataArr.forEach(e=>{
                     let main = getElement("main");
                     let infoContainer = document.createElement("div");
@@ -346,6 +350,10 @@ function getData(e){
         }
     }
 }
+else{
+    loadOfllineData();
+}
+}
     function generateRandomImg(max,min){
         let random = Math.floor((Math.random() * Math.ceil(max-min)) +1);
         let dir = `Images/@1X/img${random}.png`;
@@ -384,4 +392,76 @@ function getData(e){
         let loader = document.querySelector(".anim");
         loader.classList.remove("show");
     }
+    function loadOfllineData(){
+        console.log(localStorage.getItem("stat-offline"));
+        if(localStorage.getItem("stat-offline")){
+        let input = getElement("#country");
+        input.disabled = true;
+        let btns = document.querySelectorAll(".btn");
+        btns.forEach((b)=>{
+            b.disabled = true;
+        })
+        let appInfo = getElement(".app-info");
+        appInfo.innerHTML = "You are offline!</br><span style='font-size:1.6rem'> Your data might be outdated</span>";
+        let data = JSON.parse(localStorage.getItem("stat-offline"));
+        data.forEach(e=>{
+            let main = getElement("main");
+                    let infoContainer = document.createElement("div");
+                    infoContainer.classList.add("info-container");
+                    let infoTag = document.createElement("div");
+                    infoTag.classList.add("info-tags");
+                    let infoImageContainer =document.createElement("div");
+                    infoImageContainer.classList.add("info-image-container");
+                    let img = document.createElement("img");
+                    img.setAttribute("src",generateRandomImg(7,1));
+                    img.setAttribute("alt","Random Mask image");
+                    img.classList.add("info-image");
+                    infoImageContainer.appendChild(img);
+                    let text = document.createElement("p");
+                    text.classList.add("info-text");
+                    text.innerHTML = textD;
+                    infoTag.append(infoImageContainer,text);
+                    infoContainer.appendChild(infoTag);
+                    let info = document.createElement("div");
+                    info.classList.add("info");
+                    let date = document.createElement("div");
+                    date.classList.add("date");
+                    date.innerHTML = "Date: " +e.time.slice(0,10) + " Time: " + e.time.slice(11,16) + "<br>"+"<b> " +e.continent+" "+ e.country+"</b>";
+                    let infoItemsContainer =document.createElement("div");
+                    infoItemsContainer.classList.add("info-items-container");
+                    let cases = e.cases;
+                    for(e in cases){
+                      
+                     let infoItem = document.createElement("div");
+                    infoItem.classList.add("info-item");
+                    let number = document.createElement("div");
+                    number.classList.add("number");
+                    number.innerHTML = cases[e]!=undefined || cases[e] != null || cases[e]!=" "?cases[e]:0;
+                    let stat = document.createElement("div");
+                    stat.classList.add("stat");
+                    stat.innerHTML = e;
+                    infoItem.append(number,stat);
+                    infoItemsContainer.appendChild(infoItem);
+                        
+                        
+                    }
+                    info.append(date,infoItemsContainer);
+                    infoContainer.appendChild(info);
+                    main.appendChild(infoContainer);
+                    endLoading();
+    });
+}
+else{
+    let input = getElement("#country");
+        input.disabled = true;
+        endLoading();
+        let btns = document.querySelectorAll(".btn");
+        btns.forEach((b)=>{
+            b.disabled = true;
+        })
+        let appInfo = getElement(".app-info");
+        appInfo.innerHTML = "You are offline!</br><span style='font-size:1.6rem'>No data was saved. sorry!</span>";
+}
 
+    }
+   
