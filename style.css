@@ -23,7 +23,8 @@ html {
 body {
   font-family: 'Quicksand';
   font-weight: 400;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  scroll-behavior: smooth; }
 
 input, label {
   font-family: "Quicksand";
@@ -102,7 +103,7 @@ input, label {
   @media (max-width: 37.5em) {
     .nav {
       justify-content: space-around;
-      width: 100%; } }
+      width: 95%; } }
 
 .nav-item {
   padding: 0 1rem;
@@ -300,7 +301,7 @@ main {
       width: 95%; } }
   @media (max-width: 37.5em) {
     .info-container {
-      padding: 2rem 0; } }
+      padding: 4rem 0; } }
 
 .info-container:last-child {
   margin-bottom: 3rem; }

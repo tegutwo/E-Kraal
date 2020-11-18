@@ -34,7 +34,7 @@ body{
     font-family: 'Quicksand';
     font-weight: 400;
     overflow-x: hidden;
-    
+    scroll-behavior: smooth;
 }
 input,label{
     font-family: "Quicksand";
@@ -128,7 +128,7 @@ input,label{
     flex-direction: row;
     @include respond(mobileL){
         justify-content: space-around;
-        width: 100%;
+        width: 95%;
     }
   
 }
@@ -330,7 +330,7 @@ align-items: center;
         width: 95%;
     }
     @include respond(mobileL){
-   padding: 2rem 0;
+   padding: 4rem 0;
     }
 }
 .info-container:last-child{
