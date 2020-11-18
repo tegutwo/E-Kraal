@@ -1,5 +1,7 @@
 var textD = "Wear a mask</br> Clean your hands</br> Keep a safe distance";
+
 //Datalist
+
  function getAvailableCountries(){
      if(localStorage.getItem("Available_countries")){
         addDataList();
