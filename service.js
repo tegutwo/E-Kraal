@@ -11,11 +11,11 @@ if ('serviceWorker' in navigator) {
   //Cache assets
   var CACHE_NAME = 'my-offline-cache';
 var urlsToCache = [
-  '/',
-  '/index.html',
-  '/app.js',
-  '/style.css',
-  '/Images/header@1X.png'
+  '/E-Kraal',
+  '/E-Kraal/index.html',
+  '/E-Kraal/app.js',
+  '/E-Kraal/style.css',
+  '/E-Kraal/Images/header@1X.png'
 ];
 
 self.addEventListener('install', function(event) {
