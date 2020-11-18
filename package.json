@@ -1,0 +1,17 @@
+{
+  "name": "e-kraal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "compile_scss": "node-sass main.scss style.css -w"
+  },
+  "author": "Alvin Tegutwo",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.29.0"
+  },
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}

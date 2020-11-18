@@ -1,0 +1,45 @@
+// @media (max-width: 575.98px) { ... }
+
+// // Small devices (landscape phones, less than 768px)
+// @media (max-width: 767.98px) { ... }
+
+// // Medium devices (tablets, less than 992px)
+// @media (max-width: 991.98px) { ... }
+
+// // Large devices (desktops, less than 1200px)
+// @media (max-width: 1199.98px) { ... }
+// base + typography > general layout + grid > page layout > components
+@mixin respond ($breakpoint) {
+    @if $breakpoint==mobileS {
+        @media(max-width:31.25em) {
+            @content;
+        }
+    }
+    @else if $breakpoint == mobileL{
+        @media(max-width:37.5em){
+            @content;
+        }
+    }
+
+    @else if $breakpoint==tabletP {
+        @media(max-width:56.25em) {
+            @content;
+        }
+
+    }
+
+    @else if $breakpoint==tabletL {
+        @media(max-width:75em) {
+            @content;
+        }
+
+    }
+
+    @else if $breakpoint==big-desktop {
+        @media(min-width:112.5em) {
+            @content;
+        }
+
+    }
+}
+
